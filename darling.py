@@ -138,17 +138,17 @@ async def Sadness(ctx):
     else:
         await ctx.send("Sorry ! I only talk to darling.")
 
-bot.event
-    async def  on_command_error(ctx, error):
-        if isinstance(error, commands.MissingPermissions):
-            await ctx.send("You can't do that ;-;")
-        elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please enter all the required arguments \ncalc [currentLvl] [targetLvl] [current%]* [target%]* ")
-        elif isinstance(error, commands.MemberNotFound):
-            await ctx.send("Member not found, Please mention a valid user!")
-        elif isinstance(error, commands.BotMissingPermissions):
-            await ctx.send("I don't have the permissions to do that!")
-        else:
-            await ctx.send("Famma problem bb!")
+@bot.event
+async def  on_command_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("You can't do that ;-;")
+    elif isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please enter all the required arguments \ncalc [currentLvl] [targetLvl] [current%]* [target%]* ")
+    elif isinstance(error, commands.MemberNotFound):
+        await ctx.send("Member not found, Please mention a valid user!")
+    elif isinstance(error, commands.BotMissingPermissions):
+        await ctx.send("I don't have the permissions to do that!")
+    else:
+        await ctx.send("Famma problem bb!")
 
 bot.run(os.getenv("token"))

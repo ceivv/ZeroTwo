@@ -72,20 +72,18 @@ async def Thanks(ctx):
 async def Currency(ctx):
     if ctx.author.id == m_id :
         btc_price = cryptocompare.get_price('BTC', curr= 'USD', full = False)['BTC']['USD']
-    	   await ctx.send(f"1 BTC = {btc_price} USD")
-    	   eth_price = cryptocompare.get_price('ETH', curr= 'USD', full = False)['ETH']['USD']
-    	   await ctx.send(f"1 ETH = {eth_price} USD")
-    	   ltc_price = cryptocompare.get_price('LTC', curr= 'USD', full = False)['LTC']['USD']
-    	   await ctx.send(f"1 Litecoin = {ltc_price} USD")
-    	   await ctx.send(":heart:")
-        
+    	await ctx.send(f"1 BTC = {btc_price} USD")
+    	eth_price = cryptocompare.get_price('ETH', curr= 'USD', full = False)['ETH']['USD']
+    	await ctx.send(f"1 ETH = {eth_price} USD")
+    	ltc_price = cryptocompare.get_price('LTC', curr= 'USD', full = False)['LTC']['USD']
+        await ctx.send(f"1 Litecoin = {ltc_price} USD")
+    	await ctx.send(":heart:")
     else:
         await ctx.send("Sorry ! I only talk to darling.")
 
 @bot.command(name="Weather",aliases=["weather"])
 async def Weather(ctx,city_name):
     if ctx.author.id == m_id :
-        .lower():
         weather_info = weather(city_name)
         await ctx.send("Weather forensics for {} :\nTemperature :{} C\nPression : {} Pha\nHumidity : {} % ".format(city_name.capitalize(),weather_info[0],weather_info[1],weather_info[2]))
         await ctx.send(":heart:")
@@ -119,14 +117,14 @@ async def Love(ctx):
 @bot.command(name="i",aliases=["I"])
 async def i(ctx,mode,*args):
     if ctx.author.id == m_id :
-    	   love_words = ["love", "loves", "Love", "Loves"]
-    	   feels_words = ["feel", "Feel", "feels", "Feels"]
-    	   if mode in love_words :
-    	       await ctx.send(random.choice(love_response))
-    	       await ctx.send(":heart:")
-    	   elif mode in feels_words :
-    	       await ctx.send(random.choice(sadness_response))
-    	       await ctx.send(":heart:")
+        love_words = ["love", "loves", "Love", "Loves"]
+    	feels_words = ["feel", "Feel", "feels", "Feels"]
+        if mode in love_words :
+    	    await ctx.send(random.choice(love_response))
+    	    await ctx.send(":heart:")
+    	elif mode in feels_words :
+    	    await ctx.send(random.choice(sadness_response))
+    	    await ctx.send(":heart:")
         else:
             pass
     else:
@@ -154,14 +152,3 @@ bot.event
             await ctx.send("Famma problem bb!")
 
 bot.run(os.getenv("token"))
-
-
-
-
-
-
-
-
-
-
-
